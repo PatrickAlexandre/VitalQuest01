@@ -1,0 +1,90 @@
+<%- include('../includes/Profile_Section.ejs') %>
+
+<%- include('../includes/Navigation_Tabs.ejs') %>
+
+<!-- 🕹️ Section des Statistiques de Jeu -->
+<div id="game-stats-section" class="mt-4 bg-gray-900 p-4 rounded-lg">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- 📊 NAP -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-tachometer-alt text-orange-400"></i>
+                <span id="nap" class="text-orange-400">NAP</span>
+            </div>
+            <span class="tooltiptext">Niveau d'Activité Physique</span>
+        </div>
+        <!-- 🔥 BMR -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-fire text-purple-400"></i>
+                <span id="bmr" class="text-purple-400">BMR</span>
+            </div>
+            <span class="tooltiptext">Métabolisme de Base au Repos</span>
+        </div>
+        <!-- 🍽️ DEJ -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-utensils text-yellow-500"></i>
+                <span id="dej" class="text-yellow-500">DEJ</span>
+            </div>
+            <span class="tooltiptext">Dépense Énergétique Journalière</span>
+        </div>
+        <!-- 🛌 Sommeil -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-bed text-purple-400"></i>
+                <span class="text-purple-400">32</span>
+            </div>
+            <span class="tooltiptext">Heures de Sommeil</span>
+        </div>
+        <!-- 🍳 Sous Chef -->
+        <div class="tooltip col-span-2">
+            <div class="bg-gray-700 p-4 rounded cursor-pointer" onclick="window.location.href='https://chatgpt.com/g/g-3VrgJ1GpH-sous-chef'">
+                <div class="flex items-center space-x-2">
+                    <img src="Images/SousChef.jpg" alt="Character icon" class="rounded-full w-12 h-12">
+                    <span class="text-yellow-400 text-lg font-semibold">Sous Chef</span>
+                </div>
+                <div class="mt-2">
+                    <p class="text-gray-300">Le Sous Chef est un personnage clé en cuisine, toujours prêt à aider et à superviser les préparations.</p>
+                </div>
+                <div class="mt-2">
+                    <div class="relative w-full bg-gray-600 rounded">
+                        <div class="bg-green-500 text-xs leading-none py-1 text-center text-white rounded" style="width: 55%">55%</div>
+                    </div>
+                </div>
+            </div>
+            <span class="tooltiptext">Niveau Calorique du Personnage</span>
+        </div>
+        <!-- ❤️ Points de Vie -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-heartbeat text-green-400"></i>
+                <span class="text-green-400">797 / 797</span>
+            </div>
+            <span class="tooltiptext">Points de Vie</span>
+        </div>
+        <!-- 🔮 Points de Mana -->
+        <div class="tooltip">
+            <div class="flex items-center space-x-2 bg-gray-700 p-4 rounded">
+                <i class="fas fa-magic text-blue-400"></i>
+                <span class="text-blue-400">487 / 489</span>
+            </div>
+            <span class="tooltiptext">Points de Mana</span>
+        </div>
+    </div>
+</div>
+
+<!-- ⚔️ Barre d'Action -->
+<div id="action-bar" class="mt-4 bg-gray-900 p-4 rounded-lg">
+    <div class="flex justify-center space-x-2">
+        <button class="bg-gray-700 p-2 rounded"><i class="fas fa-bolt"></i></button>
+        <button class="bg-gray-700 p-2 rounded"><i class="fas fa-fire"></i></button>
+        <button class="bg-gray-700 p-2 rounded"><i class="fas fa-water"></i></button>
+        <button class="bg-gray-700 p-2 rounded"><i class="fas fa-leaf"></i></button>
+        <button class="bg-gray-700 p-2 rounded"><i class="fas fa-wind"></i></button>
+    </div>
+</div>
+
+    <%- include('../../services/Section.ejs') %>
+
+<%- include('../includes/energyModal.ejs') %>        

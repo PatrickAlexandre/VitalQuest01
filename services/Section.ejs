@@ -1,0 +1,139 @@
+<!-- 📦 Section Inventaire -->
+<div id="inventory-section" class="mt-4 bg-gray-900 p-4 rounded-lg hidden">
+    <h2 class="text-lg font-bold mb-4">Inventaire</h2>
+    <div class="grid grid-cols-4 gap-4">
+        <!-- 📦 Items de l'inventaire -->
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/50x50" alt="Item 1" class="mb-2">
+            <span>Item 1</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/50x50" alt="Item 2" class="mb-2">
+            <span>Item 2</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/50x50" alt="Item 3" class="mb-2">
+            <span>Item 3</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/50x50" alt="Item 4" class="mb-2">
+            <span>Item 4</span>
+        </div>
+    </div>
+</div>
+
+<!-- 🍽️ Section Alimentation -->
+<div id="nutrition-section" class="mt-4 bg-gray-900 p-4 rounded-lg hidden">
+    <h2 class="text-lg font-bold mb-4">Alimentation</h2>
+    <div class="mb-4">
+        <h3 class="font-semibold">Calendrier des Semis</h3>
+        <table class="w-full bg-gray-700 text-white rounded">
+            <thead>
+                <tr>
+                    <th class="p-2">Plante</th>
+                    <th class="p-2">Période de Semis</th>
+                    <th class="p-2">Période de Récolte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 🌱 Entrées du Calendrier des Semis -->
+                <tr>
+                    <td class="p-2">Tomate</td>
+                    <td class="p-2">Mars - Avril</td>
+                    <td class="p-2">Juillet - Septembre</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Carotte</td>
+                    <td class="p-2">Février - Mai</td>
+                    <td class="p-2">Juin - Octobre</td>
+                </tr>
+                <tr>
+                    <td class="p-2">Laitue</td>
+                    <td class="p-2">Mars - Juin</td>
+                    <td class="p-2">Mai - Août</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h3 class="font-semibold">Sous Chef</h3>
+        <button class="bg-green-500 text-white px-4 py-2 rounded flex items-center mt-2">
+            <i class="fas fa-utensils mr-2"></i> Accéder
+        </button>
+    </div>
+</div>
+
+<!-- 🧑‍🔬 Section Scientifiques -->
+<div id="scientists-section" class="mt-4 bg-gray-900 p-4 rounded-lg hidden">
+    <h2 class="text-lg font-bold mb-4">Top 8 Scientifiques</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- 👨‍🔬 Cartes des Scientifiques -->
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Albert Einstein" class="mb-2">
+            <span>Albert Einstein</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Isaac Newton" class="mb-2">
+            <span>Isaac Newton</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Marie Curie" class="mb-2">
+            <span>Marie Curie</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Galileo Galilei" class="mb-2">
+            <span>Galileo Galilei</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Charles Darwin" class="mb-2">
+            <span>Charles Darwin</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Nikola Tesla" class="mb-2">
+            <span>Nikola Tesla</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Stephen Hawking" class="mb-2">
+            <span>Stephen Hawking</span>
+        </div>
+        <div class="bg-gray-700 p-4 rounded">
+            <img src="https://placehold.co/100x100" alt="Leonardo da Vinci" class="mb-2">
+            <span>Leonardo da Vinci</span>
+        </div>
+    </div>
+</div>
+
+<!-- 💰 Section Dépenses -->
+<div id="expenses-section" class="mt-4 bg-gray-900 p-4 rounded-lg hidden">
+    <h2 class="text-lg font-bold mb-4">Dépenses</h2>
+    <div class="flex mb-4">
+        <label for="csvFileInput" class="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer flex items-center">
+            <i class="fas fa-file-import mr-2"></i> Importer un fichier CSV
+        </label>
+        <input type="file" id="csvFileInput" accept=".csv" class="hidden">
+    </div>
+    <div class="overflow-x-auto">
+        <table id="expensesTable" class="min-w-full bg-gray-900">
+            <thead class="hidden">
+                <tr>
+                    <th class="py-2 px-4 bg-gray-700 text-left text-white">Catégorie</th>
+                    <th class="py-2 px-4 bg-gray-700 text-left text-white">€ / Mois</th>
+                    <th class="py-2 px-4 bg-gray-700 text-left text-white">Dépenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes du tableau seront insérées ici via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-4">
+        <h3 class="font-semibold">Fournisseurs</h3>
+        <ul class="list-disc ml-4">
+            <li>Amazon</li>
+            <li>Carrefour</li>
+            <li>Lidl</li>
+            <li>Auchan</li>
+            <li>E.Leclerc</li>
+        </ul>
+    </div>
+</div>
