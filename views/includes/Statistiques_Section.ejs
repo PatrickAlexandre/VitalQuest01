@@ -1,0 +1,86 @@
+<div class="flex flex-wrap space-x-4">
+    <div class="hidden">
+    <div class="flex flex-col items-center">
+        <i class="fas fa-heart text-green-500 text-2xl"></i>
+        <span>72 bpm</span>
+        <span>FRÉQUENCE CARDIAQUE</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-brain text-blue-500 text-2xl"></i>
+        <span>100 milliards</span>
+        <span>NEURONES</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-dna text-purple-500 text-2xl"></i>
+        <span>3 milliards</span>
+        <span>Paires de bases d'ADN</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-fingerprint text-orange-500 text-2xl"></i>
+        <span>Unique</span>
+        <span>EMPREINTE DIGITALE</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-people-arrows text-red-500 text-2xl"></i>
+        <span>6 pieds</span>
+        <span>ZONE PERSONNELLE</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-language text-green-500 text-2xl"></i>
+        <span>6500+</span>
+        <span>LANGUES PARLÉES</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-palette text-purple-500 text-2xl"></i>
+        <span>Millions</span>
+        <span>COULEURS PERÇUES</span>
+    </div>
+    <div class="flex flex-col items-center">
+        <i class="fas fa-shoe-prints text-orange-500 text-2xl"></i>
+        <span>10,000</span>
+        <span>PAS QUOTIDIENS</span>
+    </div>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
+        <i class="fas fa-running text-blue-500 text-3xl mb-1"></i>
+        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
+        <span class="text-gray-400">NAP</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
+        <i class="fas fa-fire text-red-500 text-3xl mb-1"></i>
+        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
+        <span class="text-gray-400">BMR</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
+        <i class="fas fa-utensils text-green-500 text-3xl mb-1"></i>
+        <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
+        <span class="text-gray-400">DEJ</span>
+    </div>
+
+    <div class="flex flex-col items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out" onclick="copyToClipboardAndNavigate()">
+        <div class="flex items-center space-x-4 mb-2">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-16 h-16">
+            <div>
+                <span class="text-yellow-400 text-xl font-semibold block">Sous Chef</span>
+                <p class="text-gray-300 text-sm">Le Sous Chef est un personnage clé en cuisine, toujours prêt à aider et à superviser les préparations.</p>
+            </div>
+        </div>
+        <div class="bg-blue-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 55%">55%</div>
+    </div>
+
+    <script>
+    function copyToClipboardAndNavigate() {
+        const textToCopy = "Voici une photo de mon frigo. Que pourrais-je préparer ?";
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            window.location.href = 'https://chatgpt.com/g/g-3VrgJ1GpH-sous-chef';
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+    </script>
+
+
+</div>
