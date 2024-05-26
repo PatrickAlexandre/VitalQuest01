@@ -1,0 +1,65 @@
+<div class="border rounded flex flex-col items-center justify-center min-h-screen p-2">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold">THE <span class="text-blue-500">MILLION</span> DOLLAR MORNING</h1>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-8">
+        <!-- Row 1 -->
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-clock text-6xl text-red-500"></i>
+            <p class="mt-2 text-lg font-semibold">Wake up</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-bed text-6xl text-gray-700"></i>
+            <p class="mt-2 text-lg font-semibold">immediately get out of bed</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-ban text-6xl text-red-500"></i>
+            <p class="mt-2 text-lg font-semibold">No phone</p>
+        </div>
+        <!-- Row 2 -->
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-shower text-6xl text-blue-500"></i>
+            <p class="mt-2 text-lg font-semibold">Cold shower</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-running text-6xl text-red-500"></i>
+            <p class="mt-2 text-lg font-semibold">5 minutes of cardio</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-praying-hands text-6xl text-yellow-500"></i>
+            <p class="mt-2 text-lg font-semibold">Meditation</p>
+        </div>
+        <!-- Row 3 -->
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-apple-alt text-6xl text-green-500"></i>
+            <p class="mt-2 text-lg font-semibold">Eat a healthy breakfast</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-bullseye text-6xl text-red-500"></i>
+            <p class="mt-2 text-lg font-semibold">Set 3 daily goals</p>
+        </div>
+        <div class="flex flex-col items-center click-opacity" onclick="toggleOpacity(this)">
+            <i class="fas fa-coffee text-6xl text-yellow-800"></i>
+            <p class="mt-2 text-lg font-semibold">Grab a coffee & start hustling</p>
+        </div>
+    </div>
+    <button onclick="resetOpacity()" class="mt-8 px-4 py-2 bg-blue-500 text-white rounded">Reset</button>
+</div>
+
+<script>
+    function toggleOpacity(element) {
+        element.classList.toggle('opacity-10');
+
+        // Créez un nouvel objet Audio
+        var audio = new Audio('draven-passive-sound-effect.mp3');
+        // Jouez le son
+        audio.play();
+    }
+
+    function resetOpacity() {
+        const elements = document.querySelectorAll('.click-opacity');
+        elements.forEach(element => {
+            element.classList.remove('opacity-10');
+        });
+    }
+</script>

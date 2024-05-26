@@ -39,9 +39,9 @@ function getInputValues() {
 }
 
 function displayResults(bmr, dej, activityLevel) {
-    document.getElementById('bmr').innerHTML = `${bmr.toFixed(0)} kcal /jour`;
-    document.getElementById('dej').innerHTML = `${dej.toFixed(0)} kcal /jour`;
-    document.getElementById('nap').innerHTML = `${activityLevel.toFixed(2)}`;
+    document.getElementById('bmr').innerHTML = `${bmr.toFixed(0)} kcal`;
+    document.getElementById('dej').innerHTML = `${dej.toFixed(0)} kcal`;
+    document.getElementById('nap').innerHTML = `${activityLevel.toFixed(1)}`;
 }
 
 function displayError() {

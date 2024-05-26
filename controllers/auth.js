@@ -32,7 +32,7 @@ const getSignup = (req, res) => {
   });
 };
 
-const postLogin = (req, res, next) => {
+const postLogin = (req, res) => {
   const { email, password } = req.body;
   const errors = validationResult(req);
 

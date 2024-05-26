@@ -1,37 +1,81 @@
-<div class="flex flex-wrap mt-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
 
-    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
-        <i class="fas fa-running text-blue-500 text-3xl mb-2"></i>
-        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
-        <span class="text-gray-400 text-sm">Niveau d'Activité Physique</span>
+    <!-- Niveau d'Activité Physique -->
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
+        <i class="fas fa-running text-blue-500 text-4xl mb-2"></i>
+        <span id="nap" class="text-white text-xl font-semibold">1,2</span>
+        <span class="text-gray-400 text-base">Niveau d'Activité Physique</span>
     </div>
 
-    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
-        <i class="fas fa-fire text-red-500 text-3xl mb-2"></i>
-        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
-        <span class="text-gray-400 text-sm">Métabolisme de Base au Repos</span>
+    <!-- Métabolisme de Base au Repos -->
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
+        <i class="fas fa-fire text-red-500 text-4xl mb-2"></i>
+        <span id="bmr" class="text-white text-xl font-semibold">1500 kcal</span>
+        <span class="text-gray-400 text-base">Métabolisme de Base au Repos</span>
     </div>
 
-    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
-        <i class="fas fa-utensils text-green-500 text-3xl mb-2"></i>
-        <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
-        <span class="text-gray-400 text-sm">Dépense Énergétique Journalière</span>
+    <!-- Dépense Énergétique Journalière -->
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
+        <i class="fas fa-utensils text-green-500 text-4xl mb-2"></i>
+        <span id="dej" class="text-white text-xl font-semibold">500 kcal</span>
+        <span class="text-gray-400 text-base">Dépense Énergétique Journalière</span>
     </div>
 
-</div>
-
-    <div class="flex flex-col items-center cursor-pointer p-6 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out" onclick="copyToClipboardAndNavigate()">
+    <!-- Carte Sous Chef -->
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out cursor-pointer h-40 md:h-48" onclick="dopamineEffect(this); copyToClipboardAndNavigate()">
         <div class="flex items-center space-x-4 mb-4">
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-16 h-16">
             <div>
-                <span class="text-yellow-400 text-xl font-semibold block">Sous Chef</span> <!--  Le Sous Chef est un personnage clé en cuisine, toujours prêt à aider et à superviser les préparations.  -->
+                <span class="text-yellow-400 text-xl font-semibold block">Sous Chef</span>
             </div>
         </div>
         <div class="w-full bg-gray-700 rounded-full h-2.5">
             <div class="bg-blue-500 h-2.5 rounded-full" style="width: 55%"></div>
         </div>
     </div>
-    <script>
+
+    <!-- Fréquence Cardiaque -->
+    <% if (isAuthenticated) { %>
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
+        <i class="fas fa-heart text-green-500 text-3xl mb-2"></i>
+        <span class="text-white text-xl font-semibold">72 bpm</span>
+        <span class="text-gray-400 text-base">Fréquence Cardiaque</span>
+    </div>
+
+    <!-- Neurones -->
+    <div class="card flex flex-col items-center text-center p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
+        <i class="fas fa-brain text-blue-500 text-3xl mb-2"></i>
+        <span class="text-white text-xl font-semibold">100 milliards</span>
+        <span class="text-gray-400 text-base">Neurones</span>
+    </div>
+    <% } %>
+
+
+</div>
+
+<style>
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+.card.clicked {
+    animation: pulse 0.3s ease-in-out;
+    background-color: #4ade80; /* Green 400 */
+}
+</style>
+
+<script>
+    function dopamineEffect(element) {
+        element.classList.add('clicked');
+        setTimeout(() => {
+            element.classList.remove('clicked');
+        }, 300);
+    }
+
     function copyToClipboardAndNavigate() {
         const textToCopy = "Voici une photo de mon frigo. Que pourrais-je préparer ?";
         navigator.clipboard.writeText(textToCopy).then(function() {
@@ -40,10 +84,13 @@
             console.error('Could not copy text: ', err);
         });
     }
-    </script>
+</script>
 
 
-<!--
+
+
+
+<!-- Autres exemples de métriques
     <div class="hidden">
     <div class="flex flex-col items-center">
         <i class="fas fa-heart text-green-500 text-2xl"></i>
