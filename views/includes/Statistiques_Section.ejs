@@ -1,4 +1,49 @@
-<div class="flex flex-wrap space-x-4">
+<div class="flex flex-wrap mt-4">
+
+    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
+        <i class="fas fa-running text-blue-500 text-3xl mb-2"></i>
+        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
+        <span class="text-gray-400 text-sm">Niveau d'Activité Physique</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
+        <i class="fas fa-fire text-red-500 text-3xl mb-2"></i>
+        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
+        <span class="text-gray-400 text-sm">Métabolisme de Base au Repos</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">
+        <i class="fas fa-utensils text-green-500 text-3xl mb-2"></i>
+        <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
+        <span class="text-gray-400 text-sm">Dépense Énergétique Journalière</span>
+    </div>
+
+</div>
+
+    <div class="flex flex-col items-center cursor-pointer p-6 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out" onclick="copyToClipboardAndNavigate()">
+        <div class="flex items-center space-x-4 mb-4">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-16 h-16">
+            <div>
+                <span class="text-yellow-400 text-xl font-semibold block">Sous Chef</span> <!--  Le Sous Chef est un personnage clé en cuisine, toujours prêt à aider et à superviser les préparations.  -->
+            </div>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 55%"></div>
+        </div>
+    </div>
+    <script>
+    function copyToClipboardAndNavigate() {
+        const textToCopy = "Voici une photo de mon frigo. Que pourrais-je préparer ?";
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            window.location.href = 'https://chatgpt.com/g/g-3VrgJ1GpH-sous-chef';
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+    </script>
+
+
+<!--
     <div class="hidden">
     <div class="flex flex-col items-center">
         <i class="fas fa-heart text-green-500 text-2xl"></i>
@@ -42,45 +87,4 @@
     </div>
     </div>
 
-    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
-        <i class="fas fa-running text-blue-500 text-3xl mb-1"></i>
-        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
-        <span class="text-gray-400">NAP</span>
-    </div>
-
-    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
-        <i class="fas fa-fire text-red-500 text-3xl mb-1"></i>
-        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
-        <span class="text-gray-400">BMR</span>
-    </div>
-
-    <div class="flex flex-col items-center text-center p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300 ease-in-out">
-        <i class="fas fa-utensils text-green-500 text-3xl mb-1"></i>
-        <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
-        <span class="text-gray-400">DEJ</span>
-    </div>
-
-    <div class="flex flex-col items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out" onclick="copyToClipboardAndNavigate()">
-        <div class="flex items-center space-x-4 mb-2">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-16 h-16">
-            <div>
-                <span class="text-yellow-400 text-xl font-semibold block">Sous Chef</span>
-                <p class="text-gray-300 text-sm">Le Sous Chef est un personnage clé en cuisine, toujours prêt à aider et à superviser les préparations.</p>
-            </div>
-        </div>
-        <div class="bg-blue-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 55%">55%</div>
-    </div>
-
-    <script>
-    function copyToClipboardAndNavigate() {
-        const textToCopy = "Voici une photo de mon frigo. Que pourrais-je préparer ?";
-        navigator.clipboard.writeText(textToCopy).then(function() {
-            window.location.href = 'https://chatgpt.com/g/g-3VrgJ1GpH-sous-chef';
-        }, function(err) {
-            console.error('Could not copy text: ', err);
-        });
-    }
-    </script>
-
-
-</div>
+-->

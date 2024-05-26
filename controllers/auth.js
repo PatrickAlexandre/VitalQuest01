@@ -12,10 +12,10 @@ const getLogin = (req, res) => {
       email: '',
       password: '',
     },
-    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     validationErrors: [],
   });
 };
+
 const getSignup = (req, res) => {
   const message = req.flash('error');
 
@@ -28,10 +28,10 @@ const getSignup = (req, res) => {
       password: '',
       confirmPassword: '',
     },
-    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     validationErrors: [],
   });
 };
+
 const postLogin = (req, res, next) => {
   const { email, password } = req.body;
   const errors = validationResult(req);
@@ -45,7 +45,6 @@ const postLogin = (req, res, next) => {
         email,
         password,
       },
-      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
       validationErrors: errors.array(),
     });
   }
@@ -54,7 +53,7 @@ const postLogin = (req, res, next) => {
       if (match) {
         req.session.isLoggedIn = true;
         req.session.user = user;
-        return req.session.save((err, r) => {
+        return req.session.save((err) => {
           if (err) {
             console.log(err);
           }
@@ -69,7 +68,6 @@ const postLogin = (req, res, next) => {
           email,
           password,
         },
-        recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
         validationErrors: [],
       });
     })
@@ -78,6 +76,7 @@ const postLogin = (req, res, next) => {
       res.redirect('/login');
     });
 };
+
 const postSignup = (req, res, next) => {
   const { email, password, confirmPassword } = req.body;
   const errors = validationResult(req);
@@ -88,7 +87,6 @@ const postSignup = (req, res, next) => {
       pageTitle: 'Sign Up',
       errorMessage: errors.array()[0].msg,
       oldInput: { email, password, confirmPassword },
-      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
       validationErrors: errors.array(),
     });
   }
@@ -106,6 +104,7 @@ const postSignup = (req, res, next) => {
       return next(error);
     });
 };
+
 const postLogout = (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -114,6 +113,7 @@ const postLogout = (req, res) => {
     res.redirect('/');
   });
 };
+
 const getResetPassword = (req, res) => {
   const message = req.flash('error');
 
@@ -123,6 +123,7 @@ const getResetPassword = (req, res) => {
     errorMessage: message[0],
   });
 };
+
 const postResetPassword = (req, res, next) => {
   authService.sendResetPasswordToken(req.body.email)
     .then(() => res.redirect('/'))
@@ -132,6 +133,7 @@ const postResetPassword = (req, res, next) => {
       return next(error);
     });
 };
+
 const getNewPassword = (req, res, next) => {
   const token = req.params.token;
 
@@ -160,6 +162,7 @@ const getNewPassword = (req, res, next) => {
       return next(error);
     });
 };
+
 const postNewPassword = (req, res, next) => {
   const newPassword = req.body.password;
   const { userId, passwordToken } = req.body;
