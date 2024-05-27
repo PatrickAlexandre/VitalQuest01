@@ -1,5 +1,5 @@
 <%- include('../includes/head.ejs') %>
-  </head>
+</head>
 <script>
   function onSubmit(token) {
     document.getElementById("login-form").submit();
@@ -7,36 +7,41 @@
 </script>
 <body>
   <%- include('../includes/navigation.ejs') %>
-  <div class="uk-section uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
-    <div class="uk-container">
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="container mx-auto">
       <% if (errorMessage) { %>
-        <div class="uk-alert-danger" uk-alert>
-          <a class="uk-alert-close" uk-close></a>
-          <p><%= errorMessage %></p>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong class="font-bold">Erreur!</strong>
+          <span class="block sm:inline"><%= errorMessage %></span>
+          <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.348 14.849a1 1 0 001.415-1.415l-4.243-4.243 4.243-4.243a1 1 0 00-1.415-1.415L10 7.757 5.757 3.514a1 1 0 00-1.415 1.415l4.243 4.243-4.243 4.243a1 1 0 001.415 1.415L10 12.273l4.348 4.348z"/></svg>
+          </span>
         </div>
       <% } %>
-      <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
-        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body">
-          <h3 class="uk-text-center ui-card-title">Login</h3>
+      <div class="grid grid-cols-1 gap-4 mt-4">
+        <div class="w-full max-w-lg mx-auto bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-center text-2xl font-semibold">Se connecter</h3>
           <form id="login-form" action="/login" method="POST" novalidate>
-            <div class="uk-margin">
-              <div class="ui-text-field">Email</div>
-              <input name="email" id="email" class="ui-input uk-input uk-form-medium" type="text" value="<%= oldInput.email %>">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+              <input name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="<%= oldInput.email %>">
             </div>
-            <div class="uk-margin">
-              <div class="ui-text-field">Password</div>
-              <input name="password" id="password" class="ui-input uk-input uk-form-medium" type="password" value="<%= oldInput.password %>">
-              <div class="uk-margin-small uk-text-default uk-text-right">
-                <a class="uk-link-text-primary" href="/reset-password">Forgot password?</a>
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Mot de passe</label>
+              <input name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" value="<%= oldInput.password %>">
+              <div class="mt-2 text-right">
+                <a class="text-blue-500 hover:text-blue-700" href="/reset-password">Mot de passe oublié?</a>
               </div>
             </div>
-            <div class="uk-margin uk-text-center">
-              <button class="uk-button uk-button-primary uk-text-capitalize" type="submit" data-callback="onSubmit" data-action="submit">Login</button>
+            <div class="text-center">
+              <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" data-callback="onSubmit" data-action="submit">Se connecter</button>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
- 
+
   <%- include('../includes/end.ejs') %>
+</body>
+</html>
