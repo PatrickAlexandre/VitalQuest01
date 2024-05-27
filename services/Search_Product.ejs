@@ -1,0 +1,53 @@
+<div class="mt-8 flex items-center border-2 border-gray-300 rounded-full bg-[#FDF3EC] max-w-md mb-4">
+    <input type="text" id="barcode" placeholder="Code-barres du produit" class="flex-1 p-2 bg-[#FDF3EC] text-gray-700 rounded-l-full focus:outline-none">
+    <button id="scanButton" class="flex items-center justify-center p-2 text-white bg-blue-500 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+</div>
+
+<div id="result" class="p-4 bg-white border border-gray-300 rounded hidden">
+    <h2 class="text-xl font-semibold mb-2">Détails du Produit</h2>
+    <p id="productDetails" class="text-gray-700"></p>
+</div>
+
+<script>
+    document.getElementById('scanButton').addEventListener('click', function() {
+        var barcode = document.getElementById('barcode').value;
+        if (barcode) {
+            fetchProductDetails(barcode);
+        } else {
+            alert('Veuillez entrer un code-barres.');
+        }
+    });
+
+    function fetchProductDetails(barcode) {
+        var url = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 1) {
+                    var product = data.product;
+                    var details = `
+                        <strong>Nom:</strong> ${product.product_name || 'N/A'}<br>
+                        <strong>Marques:</strong> ${product.brands || 'N/A'}<br>
+                        <strong>Catégories:</strong> ${product.categories || 'N/A'}<br>
+                        <strong>Ingrédients:</strong> ${product.ingredients_text || 'N/A'}<br>
+                        <strong>Valeur énergétique (kcal):</strong> ${product.nutriments['energy-kcal_100g'] || 'N/A'}<br>
+                        <strong>Protéines (g):</strong> ${product.nutriments['proteins_100g'] || 'N/A'}<br>
+                        <strong>Glucides (g):</strong> ${product.nutriments['carbohydrates_100g'] || 'N/A'}<br>
+                        <strong>Lipides (g):</strong> ${product.nutriments['fat_100g'] || 'N/A'}
+                    `;
+                    document.getElementById('productDetails').innerHTML = details;
+                    document.getElementById('result').classList.remove('hidden');
+                } else {
+                    document.getElementById('productDetails').innerText = 'Produit non trouvé';
+                    document.getElementById('result').classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                document.getElementById('productDetails').innerText = 'Erreur lors de la récupération des données';
+                document.getElementById('result').classList.remove('hidden');
+            });
+    }
+</script>

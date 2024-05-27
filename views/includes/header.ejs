@@ -22,16 +22,12 @@
             <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products"><i class="fas fa-cogs"></i> Manage Products</a>
           </li>
         <% } %>
+        <li class="main-header__item">
+          <a class="<%= path === '/tools' ? 'active' : '' %>" href="/tools"><i class="fas fa-tools"></i> Tools</a>
+        </li>
       <% } %>
     </ul>
     <ul class="main-header__item-list">
-      
-      <% if (isAuthenticated) { %>
-        <li class="main-header__item">
-          <a class="<%= path === '/about' ? 'active' : '' %>" href="/about"><i class="fas fa-tools"></i> Softwares</a>
-        </li>
-      <% } %>
-
       <% if (!isAuthenticated) { %>
         <li class="main-header__item">
           <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"><i class="fas fa-user-plus"></i> Sign Up</a>
@@ -71,7 +67,7 @@
         </li>
       <% } %>
       <li class="mobile-nav__item">
-        <a class="<%= path === '/about' ? 'active' : '' %>" href="/about"><i class="fas fa-tools"></i> Tools</a>
+        <a class="<%= path === '/tools' ? 'active' : '' %>" href="/tools"><i class="fas fa-tools"></i> Tools</a>
       </li>
     <% } %>
     <% if (!isAuthenticated) { %>

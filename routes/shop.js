@@ -19,5 +19,7 @@ shopRouter.get('/checkout/cancel', shopController.getCheckout);
 shopRouter.get('/orders', isAuthenticated, shopController.getOrders);
 shopRouter.get('/shipment', isAuthenticated, shopController.getShipment);
 shopRouter.post('/shipment', isAuthenticated, shopController.postShipment);
+shopRouter.get('/tools', shopController.getTools);  // Ajout de la route
+
 
 module.exports = shopRouter;

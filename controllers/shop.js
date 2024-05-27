@@ -207,6 +207,16 @@ const postShipment = (req, res, next) => {
     });
 };
 
+// controllers/shop.js
+
+const getTools = (req, res, next) => {
+  res.render('shop/tools', {
+    pageTitle: 'Tools',
+    path: '/tools',
+  });
+};
+
+
 module.exports = {
   getProducts,
   getProduct,
@@ -221,5 +231,6 @@ module.exports = {
   getContact,
   getMyPage,
   getShipment,
+  getTools,  // Ajout de la méthode get
   postShipment
 };
