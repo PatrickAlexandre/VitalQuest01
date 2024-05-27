@@ -1,105 +1,77 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 mt-8">
 
-    <!-- Métabolisme de Base au Repos -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-fire text-red-400 text-4xl mb-2"></i>
-        <span id="bmr" class="text-white text-xl font-semibold">1500 kcal</span>
-        <span class="text-gray-300 text-base">Métabolisme de Base au Repos</span>
-    </div>
+<!-- Dépense Énergétique Journalière -->
+<div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)">
+    <i class="fas fa-utensils text-green-400 text-3xl mb-2"></i>
+    <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
+    <span class="text-gray-300 text-sm">Dépense Énergétique Journalière</span>
+</div>
 
-    <!-- Dépense Énergétique Journalière -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-utensils text-green-400 text-4xl mb-2"></i>
-        <span id="dej" class="text-white text-xl font-semibold">500 kcal</span>
-        <span class="text-gray-300 text-base">Dépense Énergétique Journalière</span>
-    </div>
 
-    <!-- Carte Sous Chef -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out cursor-pointer h-40 md:h-48" onclick="dopamineEffect(this); copyToClipboardAndNavigate()">
-        <div class="flex items-center space-x-4 mb-4">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-16 h-16">
-            <div>
-                <span class="text-yellow-300 text-xl font-semibold block">Sous Chef</span>
-                <span class="text-gray-300 text-base">Prenez une photo et je vous donnerai des recettes basées sur les aliments que vous aimez et les ingrédients que vous avez</span>
-            </div>
-        </div>
-        <div class="hidden w-full bg-gray-800 rounded-full h-2.5">
-            <div class="bg-blue-400 h-2.5 rounded-full" style="width: 55%"></div>
+<!-- Carte Sous Chef -->
+<div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out cursor-pointer h-32 md:h-40" onclick="dopamineEffect(this); copyToClipboardAndNavigate()">
+    <div class="flex items-center">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-12 h-12">
+        <div>
+            <span class="text-yellow-400 text-lg font-semibold block">Sous Chef</span>
+            <span class="text-gray-300 text-sm">Prenez une photo et je vous donnerai des recettes basées sur les aliments que vous aimez et les ingrédients que vous avez</span>
         </div>
     </div>
+    <div class="hidden w-full bg-gray-800 rounded-full h-2.5">
+        <div class="bg-blue-400 h-2.5 rounded-full" style="width: 55%"></div>
+    </div>
+</div>
 
-    <!-- Fréquence Cardiaque -->
+
+<div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Poids *-->
+    <div id="weightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Poids: 70 kg">
+        <i class="fas fa-weight text-orange-400 text-3xl mb-2" title="Poids"></i>
+        <span id="displayedWeight" class="text-white text-lg font-semibold">70 kg</span>
+        <span class="text-gray-300 text-sm">Poids</span>
+    </div>
+    
+    <!-- Taille *-->
+    <div id="heightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Taille: 175 cm">
+        <i class="fas fa-ruler-vertical text-purple-400 text-3xl mb-2" title="Taille"></i>
+        <span id="displayedHeight" class="text-white text-lg font-semibold">175 cm</span>
+        <span class="text-gray-300 text-sm">Taille</span>
+    </div>
+    
+    <!--= Métabolisme de Base au Repos -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)">
+        <i class="fas fa-fire text-red-400 text-3xl mb-2"></i>
+        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
+        <span class="text-gray-300 text-sm">Métabolisme de Base au Repos</span>
+    </div>
+    
+    <!--* Niveau d'Activité Physique -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Niveau d'Activité Physique: 1,2">
+        <i class="fas fa-running text-blue-400 text-3xl mb-2" title="Niveau d'Activité Physique"></i>
+        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
+        <span class="text-gray-300 text-sm">Niveau d'Activité Physique</span>
+    </div>
+
+</div>
+
     <% if (isAuthenticated) { %>
 
-    <!-- Income -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-money-bill-wave text-green-400 text-4xl mb-2"></i>
-        <span id="income" class="text-white text-xl font-semibold">$3000</span>
-        <span class="text-gray-300 text-base">Income</span>
-    </div>
+        <%- include('../includes/Finances.ejs') %>        
 
-    <!-- Expenses -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-receipt text-red-400 text-4xl mb-2"></i>
-        <span id="expenses" class="text-white text-xl font-semibold">$1500</span>
-        <span class="text-gray-300 text-base">Expenses</span>
-    </div>
+        <!-- Taux de masse grasse -->
+        <div class="hidden card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40">
+            <i class="fa fa-percentage text-red-400 text-3xl mb-2"></i>
+            <span class="text-white text-lg font-semibold">0%</span>
+            <span class="text-gray-300 text-sm">Taux de masse grasse</span>
+        </div>
 
-    <!-- Net Savings -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-piggy-bank text-yellow-300 text-4xl mb-2"></i>
-        <span id="net-savings" class="text-white text-xl font-semibold">$1500</span>
-        <span class="text-gray-300 text-base">Net Savings</span>
-    </div>
-
-    <!-- Investments -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-chart-line text-blue-400 text-4xl mb-2"></i>
-        <span id="investments" class="text-white text-xl font-semibold">$1000</span>
-        <span class="text-gray-300 text-base">Investments</span>
-    </div>
-
-    <!-- Savings Rate -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-percentage text-purple-400 text-4xl mb-2"></i>
-        <span id="savings-rate" class="text-white text-xl font-semibold">50%</span>
-        <span class="text-gray-300 text-base">Savings Rate</span>
-    </div>
-
-    <!-- bpm -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-heart text-green-400 text-3xl mb-2"></i>
-        <span class="text-white text-xl font-semibold">72 bpm</span>
-        <span class="text-gray-300 text-base">Fréquence Cardiaque</span>
-    </div>
-
-    <!-- Niveau d'Activité Physique -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-running text-blue-400 text-4xl mb-2"></i>
-        <span id="nap" class="text-white text-xl font-semibold">1,2</span>
-        <span class="text-gray-300 text-base">Niveau d'Activité Physique</span>
-    </div>
-
-    <!-- Taille -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-ruler-vertical text-purple-400 text-4xl mb-2"></i>
-        <span id="height" class="text-white text-xl font-semibold">175 cm</span>
-        <span class="text-gray-300 text-base">Taille</span>
-    </div>
-
-    <!-- Poids -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-weight text-orange-400 text-4xl mb-2"></i>
-        <span id="weight" class="text-white text-xl font-semibold">70 kg</span>
-        <span class="text-gray-300 text-base">Poids</span>
-    </div>
-
-    <!-- Taux de Masse Grasse -->
-    <div class="card flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-40 md:h-48" onclick="dopamineEffect(this)">
-        <i class="fas fa-percentage text-red-400 text-4xl mb-2"></i>
-        <span id="bodyfat" class="text-white text-xl font-semibold">15%</span>
-        <span class="text-gray-300 text-base">Taux de Masse Grasse</span>
-    </div>
+        <!-- BPM / Fréquence Cardiaque-->
+        <div class="hidden card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)">
+            <i class="fas fa-heart text-green-400 text-3xl mb-2"></i>
+            <span class="text-white text-lg font-semibold">72 bpm</span>
+            <span class="text-gray-300 text-sm">Fréquence Cardiaque</span>
+        </div>
 
     <% } %>
 
@@ -137,6 +109,7 @@
         });
     }
 </script>
+
 
 
 

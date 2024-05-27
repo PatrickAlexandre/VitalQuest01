@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach(input => {
         input.addEventListener('input', calculateEnergy);
     });
+
+    document.getElementById('closeModalBtn').addEventListener('click', function() {
+        document.getElementById('energyModal').classList.add('hidden');
+    });
+
+    loadFormData();
 });
 
 function calculateBMR(gender, weight, height, age) {
@@ -35,12 +41,10 @@ function getInputValues() {
     return { gender, weight, height, age, activityLevel };
 }
 
-function displayResults(bmr, dej, activityLevel, height, weight) {
+function displayResults(bmr, dej, activityLevel) {
     document.getElementById('bmr').innerHTML = `${bmr.toFixed(0)} kcal`;
     document.getElementById('dej').innerHTML = `${dej.toFixed(0)} kcal`;
     document.getElementById('nap').innerHTML = `${activityLevel.toFixed(2)}`;
-    document.getElementById('displayedHeight').innerHTML = `${height.toFixed(0)} cm`;
-    document.getElementById('displayedWeight').innerHTML = `${weight.toFixed(0)} kg`;
 }
 
 function displayError() {
@@ -77,9 +81,35 @@ function calculateEnergy() {
     if (weight > 0 && height > 0 && age > 0 && activityLevel > 0) {
         const bmr = calculateBMR(gender, weight, height, age);
         const dej = calculateDEJ(bmr, activityLevel);
-        displayResults(bmr, dej, activityLevel, height, weight);
+        displayResults(bmr, dej, activityLevel);
         updateLifeExpectancyDisplay(gender, age);
     } else {
         displayError();
     }
 }
+
+function saveFormData() {
+    const formData = {
+        gender: document.getElementById('gender').value,
+        age: document.getElementById('age').value,
+        weight: document.getElementById('weight').value,
+        height: document.getElementById('height').value,
+        activity: document.getElementById('activity').value
+    };
+    localStorage.setItem('energyFormData', JSON.stringify(formData));
+}
+
+function loadFormData() {
+    const savedData = localStorage.getItem('energyFormData');
+    if (savedData) {
+        const formData = JSON.parse(savedData);
+        document.getElementById('gender').value = formData.gender;
+        document.getElementById('age').value = formData.age;
+        document.getElementById('weight').value = formData.weight;
+        document.getElementById('height').value = formData.height;
+        document.getElementById('activity').value = formData.activity;
+        calculateEnergy(); // Met à jour les résultats après le chargement des données
+    }
+}
+
+document.getElementById('energyForm').addEventListener('input', saveFormData);
