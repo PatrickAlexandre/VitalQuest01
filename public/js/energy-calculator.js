@@ -40,7 +40,7 @@ function displayResults(bmr, dej, activityLevel, height, weight) {
     document.getElementById('dej').innerHTML = `${dej.toFixed(0)} kcal`;
     document.getElementById('nap').innerHTML = `${activityLevel.toFixed(2)}`;
     document.getElementById('displayedHeight').innerHTML = `${height.toFixed(0)} cm`;
-    document.getElementById('displayedWeight').innerHTML = `${weight.toFixed(0)} kg`;
+    document.getElementById('displayedWeight').innerHTML = `${weight.toFixed(1)} kg`;
 }
 
 function displayError() {

@@ -1,59 +1,51 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 mt-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
 
-<!-- Dépense Énergétique Journalière -->
-<div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)">
-    <i class="fas fa-utensils text-green-400 text-3xl mb-2"></i>
-    <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
-    <span class="text-gray-300 text-sm">Dépense Énergétique Journalière</span>
-</div>
-
-
-<!-- Carte Sous Chef -->
-<div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out cursor-pointer h-32 md:h-40" onclick="dopamineEffect(this); copyToClipboardAndNavigate()">
-    <div class="flex items-center">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-12 h-12">
-        <div>
-            <span class="text-yellow-400 text-lg font-semibold block">Sous Chef</span>
-            <span class="text-gray-300 text-sm">Prenez une photo et je vous donnerai des recettes basées sur les aliments que vous aimez et les ingrédients que vous avez</span>
+    <!-- Calories -> DEJ = MB * NAP -->
+    <div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Pop-up Personnage -->
+        <div id="character-btn" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-950 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Personnage">
+            <i class="fas fa-gamepad text-white-400 text-3xl mb-2"></i>
+            <span class="text-white text-lg font-semibold">Personnage</span>
+            <span class="text-gray-300 text-sm">Modifier les caractéristiques</span>
         </div>
-    </div>
-    <div class="hidden w-full bg-gray-800 rounded-full h-2.5">
-        <div class="bg-blue-400 h-2.5 rounded-full" style="width: 55%"></div>
-    </div>
-</div>
 
+        <!-- Dépense Énergétique Journalière -->
+        <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Dépense Énergétique Journalière: 500 kcal">
+            <i class="fas fa-utensils text-green-400 text-3xl mb-2"></i>
+            <span id="dej" class="text-white text-lg font-semibold">500 kcal</span>
+            <span class="text-gray-300 text-sm">Dépense Énergétique Journalière</span>
+        </div>
 
-<div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Niveau d'Activité Physique -->
+        <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Niveau d'Activité Physique: 1,2">
+            <i class="fas fa-running text-blue-400 text-3xl mb-2"></i>
+            <span id="nap" class="text-white text-lg font-semibold">1,2</span>
+            <span class="text-gray-300 text-sm">Niveau d'Activité Physique</span>
+        </div>
 
-    <!-- Poids *-->
-    <div id="weightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Poids: 70 kg">
-        <i class="fas fa-weight text-orange-400 text-3xl mb-2" title="Poids"></i>
-        <span id="displayedWeight" class="text-white text-lg font-semibold">70 kg</span>
-        <span class="text-gray-300 text-sm">Poids</span>
-    </div>
-    
-    <!-- Taille *-->
-    <div id="heightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Taille: 175 cm">
-        <i class="fas fa-ruler-vertical text-purple-400 text-3xl mb-2" title="Taille"></i>
-        <span id="displayedHeight" class="text-white text-lg font-semibold">175 cm</span>
-        <span class="text-gray-300 text-sm">Taille</span>
-    </div>
-    
-    <!--= Métabolisme de Base au Repos -->
-    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)">
-        <i class="fas fa-fire text-red-400 text-3xl mb-2"></i>
-        <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
-        <span class="text-gray-300 text-sm">Métabolisme de Base au Repos</span>
-    </div>
-    
-    <!--* Niveau d'Activité Physique -->
-    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Niveau d'Activité Physique: 1,2">
-        <i class="fas fa-running text-blue-400 text-3xl mb-2" title="Niveau d'Activité Physique"></i>
-        <span id="nap" class="text-white text-lg font-semibold">1,2</span>
-        <span class="text-gray-300 text-sm">Niveau d'Activité Physique</span>
-    </div>
+        <!-- Métabolisme de Base au Repos -->
+        <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Métabolisme de Base au Repos: 1500 kcal">
+            <i class="fas fa-fire text-red-400 text-3xl mb-2"></i>
+            <span id="bmr" class="text-white text-lg font-semibold">1500 kcal</span>
+            <span class="text-gray-300 text-sm">Métabolisme de Base au Repos</span>
+        </div>
 
-</div>
+        <!-- Poids -->
+        <div id="weightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Poids: 70 kg">
+            <i class="fas fa-weight text-orange-400 text-3xl mb-2"></i>
+            <span id="displayedWeight" class="text-white text-lg font-semibold">70 kg</span>
+            <span class="text-gray-300 text-sm">Poids</span>
+        </div>
+        
+        <!-- Taille -->
+        <div id="heightCard" class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" role="button" aria-label="Taille: 175 cm">
+            <i class="fas fa-ruler-vertical text-purple-400 text-3xl mb-2"></i>
+            <span id="displayedHeight" class="text-white text-lg font-semibold">175 cm</span>
+            <span class="text-gray-300 text-sm">Taille</span>
+        </div>
+
+    </div>
 
     <% if (isAuthenticated) { %>
 
@@ -75,6 +67,44 @@
 
     <% } %>
 
+    <!-- Carte Sous Chef    "Je vous donnerai des recettes basées sur les aliments que vous aimez et les ingrédients que vous avez."   -->
+    <div id="sousChefCard" class="card flex flex-col items-center text-center p-4 bg-gray-800 rounded hover:bg-gray-950 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40 cursor-pointer" onclick="dopamineEffect(this); copyToClipboardAndNavigate()" role="button" aria-label="Sous Chef: Recettes personnalisées">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/dd/68/98/dd6898cc-e743-cfba-cc7f-5832c029438a/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="Character icon" class="rounded-full w-12 h-12 mb-2">
+        <span class="text-white text-lg font-semibold">Sous Chef</span>
+        <span class="text-gray-300 text-sm">Recettes</span>
+    </div>
+
+</div>
+
+<!-- Section Temps -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
+    <!-- Lever du Soleil -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" role="button" aria-label="Lever du Soleil: 06:00">
+        <i class="fas fa-sun text-yellow-400 text-3xl mb-2"></i>
+        <span id="sunrise" class="text-white text-lg font-semibold">06:00</span>
+        <span class="text-gray-300 text-sm">Lever du Soleil</span>
+    </div>
+
+    <!-- Coucher du Soleil -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" role="button" aria-label="Coucher du Soleil: 20:00">
+        <i class="fas fa-moon text-blue-400 text-3xl mb-2"></i>
+        <span id="sunset" class="text-white text-lg font-semibold">20:00</span>
+        <span class="text-gray-300 text-sm">Coucher du Soleil</span>
+    </div>
+
+    <!-- Temps Restant -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" role="button" aria-label="Temps Restant: 14 heures">
+        <i class="fas fa-hourglass-half text-green-400 text-3xl mb-2"></i>
+        <span id="remainingTime" class="text-white text-lg font-semibold">14 heures</span>
+        <span class="text-gray-300 text-sm">Temps Restant</span>
+    </div>
+
+    <!-- Pourcentage de la Journée -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" role="button" aria-label="Pourcentage de la Journée: 58%">
+        <i class="fas fa-percent text-red-400 text-3xl mb-2"></i>
+        <span id="dayPercentage" class="text-white text-lg font-semibold">58%</span>
+        <span class="text-gray-300 text-sm">Pourcentage de la Journée</span>
+    </div>    
 </div>
 
 <style>

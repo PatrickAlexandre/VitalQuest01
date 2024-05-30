@@ -1,11 +1,4 @@
 <div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    
-    <!-- Savings Rate -->
-    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Taux d'Épargne: 50%">
-        <i class="fas fa-percentage text-purple-400 text-3xl mb-2" title="Savings Rate"></i>
-        <span id="savings-rate" class="text-white text-lg font-semibold">50%</span>
-        <span class="text-gray-300 text-sm">Taux d'Épargne</span>
-    </div>
 
     <!-- Income -->
     <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Revenu: 3000€">
@@ -17,13 +10,20 @@
     <!-- Expenses -->
     <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this); openModal()" aria-label="Dépenses: 1700€">
         <i class="fas fa-receipt text-red-400 text-3xl mb-2" title="Expenses"></i>
-        <span id="expenses" class="text-white text-lg font-semibold">1700€</span>
+        <span id="expenses" class="text-red-400 text-lg font-semibold">€</span>
         <span class="text-gray-300 text-sm">Dépenses</span>
+    </div>
+
+    <!-- Savings Rate -->
+    <div class="card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Taux d'Épargne: 50%">
+        <i class="fas fa-percentage text-purple-400 text-3xl mb-2" title="Savings Rate"></i>
+        <span id="savings-rate" class="text-white text-lg font-semibold">%</span>
+        <span class="text-gray-300 text-sm">Taux d'Épargne</span>
     </div>
 
     <!-- Net Savings -->
     <div class="card hidden-card flex flex-col items-center text-center p-4 bg-gray-900 rounded-lg hover:bg-gray-800 transition-transform transform hover:scale-105 duration-300 ease-in-out h-32 md:h-40" onclick="dopamineEffect(this)" aria-label="Épargne Nette: $1500">
-        <i class="fas fa-piggy-bank text-yellow-300 text-3xl mb-2" title="Net Savings"></i>
+        <i class="fas fa-piggy-bank text-yellow-400 text-3xl mb-2" title="Net Savings"></i>
         <span id="net-savings" class="text-white text-lg font-semibold">$1500</span>
         <span class="text-gray-300 text-sm">Épargne Nette</span>
     </div>    
@@ -37,31 +37,48 @@
 
 </div>
 
+
+
+
+
 <!-- Modal -->
 <div id="expensesModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="bg-white rounded-lg w-11/12 md:w-1/2 p-6 shadow-lg">
         <div class="flex justify-between items-center border-b pb-3">
-            <h3 id="modal-title" class="text-lg font-semibold text-gray-900">Dépenses par COICOP</h3>
+            <h3 id="modal-title" class="text-lg font-semibold text-red-800">Dépenses par COICOP</h3>
             <button class="text-red-600 hover:text-red-800 text-2xl" onclick="closeModal()" aria-label="Close modal">&times;</button>
         </div>
-        <div class="mt-4">
+
+        <div class="mt-4 text-black">
             <div class="grid grid-cols-3 gap-4">
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 1: 400€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 2: 300€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 3: 200€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 4: 150€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 5: 150€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 6: 100€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 7: 100€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 8: 100€</div>
-                <div class="bg-blue-100 p-2 rounded shadow">COICOP 9: 100€</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Produits alimentaires et boissons non alcoolisées</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Boissons alcoolisées, tabac et stupéfiants</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Articles d’habillement et chaussures</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Logement, eau, électricité, gaz et autres combustibles</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Meubles, articles de ménage et entretien courant du foyer</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Santé</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Transports</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Communications</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Loisirs, spectacles et culture</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Éducation</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Hôtels, cafés et restaurants</div>
+                <div class="bg-blue-100 p-2 rounded shadow">Biens et services divers</div>
             </div>
+            <!--    <div id="total" class="bg-green-100 p-2 rounded shadow mt-4">Total: €</div> -->
         </div>
     </div>
 </div>
 
 <!-- Scripts -->
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const values = [400, 300, 200, 150, 1050, 100, 500, 100, 100];
+        const total = values.reduce((sum, value) => sum + value, 0);
+        document.getElementById("expenses").innerText = total + "€";
+        calculateSavingsRate();
+        showNotification('Dashboard loaded successfully!');
+    });
+
     function openModal() {
         document.getElementById('expensesModal').classList.remove('hidden');
     }
@@ -92,11 +109,7 @@
 
     function toggleCardVisibility(cardId) {
         const card = document.getElementById(cardId);
-        if (card.classList.contains('hidden-card')) {
-            card.classList.remove('hidden-card');
-        } else {
-            card.classList.add('hidden-card');
-        }
+        card.classList.toggle('hidden-card');
     }
 
     function showNotification(message) {
@@ -108,8 +121,4 @@
             notification.remove();
         }, 3000);
     }
-
-    // Appeler la fonction pour calculer et afficher le taux d'épargne
-    calculateSavingsRate();
-    showNotification('Dashboard loaded successfully!');
 </script>
