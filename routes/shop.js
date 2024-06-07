@@ -20,6 +20,8 @@ shopRouter.get('/orders', isAuthenticated, shopController.getOrders);
 shopRouter.get('/shipment', isAuthenticated, shopController.getShipment);
 shopRouter.post('/shipment', isAuthenticated, shopController.postShipment);
 shopRouter.get('/tools', shopController.getTools);  // Ajout de la route
+shopRouter.get('/routine', shopController.getRoutine);  // Ajout de la route
+shopRouter.get('/tubeform', shopController.getTubeForm);  // Ajout de la route
 
 
 module.exports = shopRouter;

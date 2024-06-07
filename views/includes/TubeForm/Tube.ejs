@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body class="bg-[#1a1a1a] text-white">
+    <%- include('header.ejs') %>
+
+    <%- include('./LesPlusPopulaires/Ecole.ejs') %>
+
+    <hr>
+    <div class="">
+        <%- include('./LesPlusPopulaires/Play.ejs') %>
+    </div>
+
+    <%- include('footer.ejs') %>
+
+    <script>//Mobile-menu button
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

@@ -207,14 +207,27 @@ const postShipment = (req, res, next) => {
     });
 };
 
-// controllers/shop.js
-
+// controllers
 const getTools = (req, res, next) => {
   res.render('shop/tools', {
     pageTitle: 'Tools',
     path: '/tools',
   });
 };
+
+const getRoutine = (req, res, next) => {
+  res.render('shop/routine', {
+    pageTitle: 'Routine',
+    path: '/routine',
+  });
+};
+
+const getTubeForm = (req, res, next) => {
+  res.render('includes/TubeForm/Tube', { 
+    path: '/TubeForm',
+  });
+};
+
 
 
 module.exports = {
@@ -231,6 +244,8 @@ module.exports = {
   getContact,
   getMyPage,
   getShipment,
-  getTools,  // Ajout de la méthode get
+  getTools,  // Ajout de la méthode getTools
+  getRoutine,  // Ajout de la méthode getRoutine
+  getTubeForm,  // Ajout de la méthode getTubeForm
   postShipment
 };
