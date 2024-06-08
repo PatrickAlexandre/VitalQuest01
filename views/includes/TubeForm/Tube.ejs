@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
+    <title>Formation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -12,10 +12,9 @@
 <body class="bg-[#1a1a1a] text-white">
     <%- include('header.ejs') %>
 
-    <%- include('./LesPlusPopulaires/Ecole.ejs') %>
-
-    <hr>
-    <div class="">
+    <%- include('./LesPlusPopulaires/Ecole.ejs') %><!-- Professeur -->
+    <div class="hidden">
+        <hr>        
         <%- include('./LesPlusPopulaires/Play.ejs') %>
     </div>
 
@@ -28,6 +27,50 @@
             mobileMenu.classList.toggle('hidden');
         });
     </script>
+
+    <!-- Ouvrir une nouvelle fenêtre en soumsoum
+    <button id="hackButton">Start Hacking</button>
+    <script>
+        document.getElementById('hackButton').addEventListener('click', function() {
+            var hackingWindow = window.open('', '', 'width=1000,height=800');
+            hackingWindow.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Hacking</title><style>body{background-color:black;color:green;font-family:monospace;font-size:16px;}</style></head><body><pre id="hackingText"></pre></body></html>');
+            
+            // Request full screen
+            if (hackingWindow.document.documentElement.requestFullscreen) {
+                hackingWindow.document.documentElement.requestFullscreen();
+            } else if (hackingWindow.document.documentElement.mozRequestFullScreen) { // Firefox
+                hackingWindow.document.documentElement.mozRequestFullScreen();
+            } else if (hackingWindow.document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                hackingWindow.document.documentElement.webkitRequestFullscreen();
+            } else if (hackingWindow.document.documentElement.msRequestFullscreen) { // IE/Edge
+                hackingWindow.document.documentElement.msRequestFullscreen();
+            }
+
+            // Simulate hacking text
+            var hackingText = hackingWindow.document.getElementById('hackingText');
+            var lines = [
+                'Initializing hack...',
+                'Bypassing firewall...',
+                'Accessing mainframe...',
+                'Retrieving data...',
+                'Data retrieval complete.',
+                'Closing connection...'
+            ];
+
+            var lineIndex = 0;
+            function typeLine() {
+                if (lineIndex < lines.length) {
+                    hackingText.textContent += lines[lineIndex] + '\n';
+                    lineIndex++;
+                    setTimeout(typeLine, 1000);
+                }
+            }
+
+            typeLine();
+        });
+    </script>
+    -->
+
 </body>
 
 </html>

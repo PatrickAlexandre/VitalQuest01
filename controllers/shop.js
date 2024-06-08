@@ -223,10 +223,16 @@ const getRoutine = (req, res, next) => {
 };
 
 const getTubeForm = (req, res, next) => {
-  res.render('includes/TubeForm/Tube', { 
-    path: '/TubeForm',
-  });
+  shopService.getAddressByUserId(req.user.id)
+    .then((shipmentAddress) => {
+      res.render('includes/TubeForm/Tube', { 
+        path: '/TubeForm',
+        shipmentAddress,
+      });
+    })
+    .catch(next); // This ensures any errors are passed to the next middleware
 };
+
 
 
 
