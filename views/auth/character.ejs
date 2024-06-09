@@ -1,0 +1,72 @@
+<!-- Large Screen -->
+<div class="hidden md:flex items-center p-4 bg-gray-900 text-white text-sm font-sans">
+    <img src="https://placehold.co/50x50" alt="Horde logo" class="hidden w-12 h-12 mr-4">
+    <p class="text-teal-300 text-2xl font-bold"><%= shipmentAddress.firstname %></p>
+    <div class="flex items-center ml-4 space-x-2 mt-1">
+        <i class="fas fa-shield-alt text-yellow-500"></i>
+        <span>12850</span>
+        <span class="text-yellow-500">|</span>
+        <i class="fas fa-sword text-yellow-500"></i>
+        <span>NIVEAU D'OBJET 187</span>
+    </div>
+    <p class="ml-auto mt-1">
+        60 Elfe de sang Maîtrise des bêtes Chasseresse Nordrassil
+    </p>
+</div>
+
+<!-- Small Screen -->
+<div class="md:hidden flex flex-col items-center p-4 bg-gray-900 text-white text-sm font-sans">
+    <p class="text-teal-300 text-2xl font-bold"><%= shipmentAddress.firstname %></p>
+    <div class="flex items-center my-2 space-x-2">
+        <i class="fas fa-shield-alt text-yellow-500"></i>
+        <span>12850</span>
+        <span class="text-yellow-500">|</span>
+        <i class="fas fa-sword text-yellow-500"></i>
+        <span>NIVEAU D'OBJET 187</span>
+    </div>
+    <p class="text-lg text-center mt-2">
+        <span id="displayed-age">Âge</span> Elfe de sang Maîtrise des bêtes Chasseresse Nordrassil
+    </p>
+</div>
+
+<!-- Base statistics -->
+<div class="flex items-center space-x-4 p-2">
+    <div class="flex items-center space-x-2">
+        <div class="text-yellow-400 flex items-center space-x-1">
+            <span class="text-lg">75</span>
+            <i class="fas fa-magic"></i> <!-- Magie -->
+        </div>
+    </div>
+
+    <div class="flex items-center space-x-2">
+        <div class="text-yellow-400 flex items-center space-x-1">
+            <span class="text-lg">39</span>
+            <i class="fas fa-shield-alt"></i> <!-- Bouclier -->
+        </div>
+        <div class="text-purple-400 flex items-center space-x-1">
+            <span class="text-lg">32</span>
+            <i class="fas fa-shield-virus"></i> <!-- Virus -->
+        </div>
+    </div>
+
+    <div class="flex items-center space-x-2">
+        <div class="text-green-400 flex items-center space-x-1">
+            <span id="activityResult" class="text-lg">0.71</span>
+            <i class="fas fa-tachometer-alt"></i> <!-- Niveau d'activité -->
+        </div>
+    </div>
+
+    <div class="flex items-center space-x-2">
+        <div class="text-red-600 flex items-center space-x-1">
+            <i class="fas fa-bolt"></i> <!-- MB -->
+            <span class="text-lg">0</span>
+        </div>
+    </div>
+
+    <div class="flex items-center space-x-2">
+        <div class="text-blue-400 flex items-center space-x-1">
+            <i class="fas fa-trophy"></i> <!-- Score général -->
+            <span id="points-hauts-faits" class="text-lg">99</span>
+        </div>
+    </div>
+</div>
