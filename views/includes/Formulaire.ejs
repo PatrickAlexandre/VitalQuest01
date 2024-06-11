@@ -1,6 +1,6 @@
     <!-- Formulaire -->
     <form id="DEJ_Calcul">
-        <div class="flex flex-wrap -mx-2 mb-4">
+        <div class="flex flex-wrap -mx-2 mb-4 mt-4">
             <div class="w-full md:w-1/3 px-2 mb-4 md:mb-0">
                 <label for="weight" class="block text-gray-400">Poids (kg)</label>
                 <input type="number" class="form-control block w-full bg-gray-800 text-white border border-gray-700 rounded px-3 py-2 focus:outline-none" id="weight" placeholder="Entrez votre poids" value="62" min="2.1" max="635">
@@ -60,7 +60,7 @@
 
             // Affiche les résultats arrondis à N décimales dans les éléments HTML correspondants
             document.getElementById('dej-result').innerText = dej.toFixed(0);
-            document.getElementById('activityResult').innerText = activity.toFixed(2);
+            document.getElementById('activityResult').innerText = activity.toFixed(1);
         }
 
         // Appelle la fonction de calcul de la DEJ pour initialiser les résultats lors du chargement de la page

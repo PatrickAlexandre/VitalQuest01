@@ -38,9 +38,9 @@ function getInputValues() {
 function displayResults(bmr, dej, activityLevel, height, weight) {
     document.getElementById('bmr').innerHTML = `${bmr.toFixed(0)} kcal`;
     document.getElementById('dej').innerHTML = `${dej.toFixed(0)} kcal`;
-    document.getElementById('nap').innerHTML = `${activityLevel.toFixed(2)}`;
+    document.getElementById('nap').innerHTML = `${activityLevel.toFixed(1)}`;
     document.getElementById('displayedHeight').innerHTML = `${height.toFixed(0)} cm`;
-    document.getElementById('displayedWeight').innerHTML = `${weight.toFixed(1)} kg`;
+    document.getElementById('displayedWeight').innerHTML = `${weight.toFixed(0)} kg`;
 }
 
 function displayError() {
