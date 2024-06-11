@@ -5,9 +5,10 @@
 
   <body>
     <%- include('../includes/navigation.ejs') %>
+
     <main>
       <div class="uk-section">
-        <div class="uk-container uk-container-medium">     
+        <div class="uk-container uk-container-medium">      
           <div class="uk-grid" uk-grid>
             <div class="uk-width-1-1">
               <h2>Informations personnelles</h2>
@@ -16,7 +17,10 @@
           <%- include('../includes/my-account.ejs') %>
           <%- include('../includes/my-shipment-details.ejs') %>
           <%- include('../includes/my-orders.ejs') %>
+          <%- include('../auth/character.ejs') %>     
+          <%- include('../includes/Formulaire.ejs') %>   
         </div>
+
     </div>
     </main>
 
