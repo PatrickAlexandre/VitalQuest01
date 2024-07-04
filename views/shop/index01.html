@@ -1,0 +1,22 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/product.css">
+<link rel="stylesheet" href="/css/Home.css">
+</head>
+
+<body class="bg-gray-800 text-white font-sans leading-normal tracking-normal">
+    <%- include('../includes/header.ejs') %>
+    <div class="container mx-auto p-4">
+        <%- include('../includes/VitalQuest.ejs') %>
+    </div>
+    <%- include('../includes/FOOTER.ejs') %>        
+
+    <script src="/js/opncls_Modal.js"></script> <!-- Gère | ouverture et la fermeture des fenêtres modales -->
+    <script src="/js/form-handler.js"></script> <!-- Gère | soumissions et validations de formulaires -->
+    <script src="/js/energy-calculator.js"></script> <!-- Calcule | consommation et les économies d'énergie -->
+    <script src="/js/changeBackground.js"></script> <!-- Change dynamiquement | arrière-plan -->
+    <script src="/js/cameraCapture.js"></script> <!-- Capturer des images | depuis la caméra -->
+    <script src="/js/activeButton.js"></script> <!-- Gère | état et le style des boutons actifs -->
+    <script src="/js/csvImport.js"></script> <!-- Importe et gère les données | fichiers CSV -->
+
+<%- include('../includes/end.ejs') %>

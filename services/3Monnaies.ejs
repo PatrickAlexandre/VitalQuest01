@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Gestion des Ressources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            var dataTemps = google.visualization.arrayToDataTable([
+                ['Tâche', 'Heures par jour'],
+                ['Travail', 8],
+                ['Commute', 2],
+                ['Regarder la TV', 4],
+                ['Dormir', 8],
+                ['Autres', 2]
+            ]);
+
+            var optionsTemps = {
+                title: 'Répartition du Temps',
+                backgroundColor: 'transparent',
+                legendTextStyle: {color: 'white'},
+                titleTextStyle: {color: 'white'},
+                chartArea: {width: '100%', height: '80%'},
+                responsive: true,
+                maintainAspectRatio: true
+            };
+
+            var chartTemps = new google.visualization.PieChart(document.getElementById('temps-chart'));
+            chartTemps.draw(dataTemps, optionsTemps);
+
+            var dataConnaissance = google.visualization.arrayToDataTable([
+                ['Tâche', 'Heures par semaine'],
+                ['Étudier', 10],
+                ['Lire', 5],
+                ['Formation en ligne', 3],
+                ['Autres', 2]
+            ]);
+
+            var optionsConnaissance = {
+                title: 'Répartition de la Connaissance',
+                backgroundColor: 'transparent',
+                legendTextStyle: {color: 'white'},
+                titleTextStyle: {color: 'white'},
+                hAxis: {
+                    textStyle: {color: 'white'}
+                },
+                vAxis: {
+                    textStyle: {color: 'white'}
+                },
+                chartArea: {width: '100%', height: '80%'},
+                responsive: true,
+                maintainAspectRatio: true
+            };
+
+            var chartConnaissance = new google.visualization.ColumnChart(document.getElementById('connaissance-chart'));
+            chartConnaissance.draw(dataConnaissance, optionsConnaissance);
+
+            var dataArgent = google.visualization.arrayToDataTable([
+                ['Catégorie', 'Dépenses mensuelles'],
+                ['Loyer', 500],
+                ['Nourriture', 200],
+                ['Transport', 100],
+                ['Loisirs', 100],
+                ['Autres', 100]
+            ]);
+
+            var optionsArgent = {
+                title: 'Répartition de l\'Argent',
+                backgroundColor: 'transparent',
+                legendTextStyle: {color: 'white'},
+                titleTextStyle: {color: 'white'},
+                hAxis: {
+                    textStyle: {color: 'white'}
+                },
+                vAxis: {
+                    textStyle: {color: 'white'}
+                },
+                chartArea: {width: '100%', height: '80%'},
+                responsive: true,
+                maintainAspectRatio: true
+            };
+
+            var chartArgent = new google.visualization.AreaChart(document.getElementById('argent-chart'));
+            chartArgent.draw(dataArgent, optionsArgent);
+        }
+
+        window.addEventListener('resize', drawCharts);
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            background-color: #121212;
+            color: #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin: 10px 0;
+            color: #FFD700;
+        }
+        .sub-title {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #FFA500;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 10px;
+            padding: 0 5px;
+            flex-grow: 1;
+        }
+        @media(min-width: 600px) {
+            .dashboard-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin: 20px;
+                padding: 0 10px;
+            }
+        }
+        .zone {
+            padding: 15px;
+            text-align: center;
+            background-color: #1E1E1E;
+            border-radius: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+            overflow: hidden; /* Assure que le contenu ne dépasse pas du conteneur */
+        }
+        .zone:hover {
+            transform: translateY(-5px);
+            background-color: #2A2A2A;
+        }
+        .zone h2 {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #FFD700;
+        }
+        .zone i {
+            font-size: 2em;
+            margin-bottom: 5px;
+            color: #FFA500;
+        }
+        .chart-container {
+            width: 100%;
+            height: 200px;
+        }
+        .explicatif {
+            text-align: center;
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 1em;
+            color: #FFA500;
+        }
+        .explicatif span {
+            color: #FFD700;
+        }
+        #CompteurMonnaie {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #1E1E1E;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 150px;
+            color: #E0E0E0;
+        }
+        #compteur-vie-mana {
+            margin: 20px auto;
+            background-color: #1E1E1E;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 200px;
+            color: #E0E0E0;
+            text-align: center;
+        }
+        .barre {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .icone-barre {
+            margin-right: 5px;
+        }
+        .barre-vie, .barre-mana {
+            height: 15px;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-grow: 1;
+        }
+        .barre-text {
+            position: absolute;
+            width: 100%;
+        }
+        .barre-vie {
+            background-color: #ff4d4d;
+        }
+        .barre-mana {
+            background-color: #4d79ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>NOUS AVONS TOUS</h1>
+    <div class="sub-title">3 MONNAIES</div>
+    <div class="dashboard-container">
+        <div class="zone" id="zone-temps">
+            <i class="fas fa-clock"></i>
+            <h2>LE TEMPS</h2>
+            <div id="temps-chart" class="chart-container"></div>
+        </div>
+        <div class="zone" id="zone-connaissance">
+            <i class="fas fa-brain"></i>
+            <h2>LA CONNAISSANCE</h2>
+            <div id="connaissance-chart" class="chart-container"></div>
+        </div>
+        <div class="zone" id="zone-argent">
+            <i class="fas fa-dollar-sign"></i>
+            <h2>L'ARGENT</h2>
+            <div id="argent-chart" class="chart-container"></div>
+        </div>
+    </div>
+    <div class="explicatif">
+        POUR EN OBTENIR UNE, <span>TU DOIS UTILISER LES DEUX AUTRES</span>
+    </div>
+    <div id="CompteurMonnaie">
+        <i class="fas fa-clock"></i> Temps: 50<br>
+        <i class="fas fa-book"></i> Connaissance: 20<br>
+        <i class="fas fa-dollar-sign"></i> Argent: 30
+    </div>
+    <div id="compteur-vie-mana">
+        <div class="barre">
+            <i class="fas fa-heart icone-barre" style="color: red;"></i>
+            <div class="barre-vie" style="width: 80%;"><span class="barre-text">80%</span></div>
+        </div>
+        <div class="barre">
+            <i class="fas fa-bolt icone-barre" style="color: yellow;"></i>
+            <div class="barre-mana" style="width: 60%;"><span class="barre-text">60%</span></div>
+        </div>
+    </div>

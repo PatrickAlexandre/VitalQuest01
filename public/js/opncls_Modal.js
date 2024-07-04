@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 📤 Affiche la fenêtre modale au chargement de la page
-    //energyModal.classList.remove('hidden');
+    energyModal.classList.remove('hidden');
 });
