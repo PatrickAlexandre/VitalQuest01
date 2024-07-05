@@ -1,41 +1,43 @@
-<div class="flex flex-col md:flex-row items-center mb-4">
+<!-- 🔵 Titre principal
+<h1 class="text-lg font-bold mb-4 text-blue-600">Development View</h1> -->
+<div class="flex flex-col md:flex-row mb-4">
+
+    <!-- 📏 Section pour l'image de profil -->
     <div class="w-full md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
-        <div class="w-24 h-24 rounded-full overflow-hidden transition-transform transform hover:scale-105" aria-label="Profile picture">
-            <img src="https://placehold.co/150x150" alt="Portrait of a man in a suit" class="w-full h-full object-cover">
+        <div class="relative w-24 h-24 rounded-full overflow-hidden transition-transform transform hover:scale-105" aria-label="Profile picture">
+            <!-- 🖼️ Image de profil par défaut -->
+            <img id="profile-image" src="https://placehold.co/150x150" alt="Portrait of a man in a suit" class="w-full h-full object-cover cursor-pointer">
+            <!-- 📁 Input caché pour télécharger une nouvelle image -->
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
         </div>
     </div>
 
+    <!-- 📝 Section principale du contenu -->
     <div class="w-full md:w-1/3 flex items-center flex-col">
-        <h1 class="text-lg font-bold mb-4 text-blue-600">Development Team</h1>
-        <div class="grid grid-cols-4 gap-2">
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Ruler">
-                <i class="fas fa-ruler-vertical"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Weight">
-                <i class="fas fa-weight"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Settings">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Lightbulb">
-                <i class="fas fa-lightbulb"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Heart">
-                <i class="fas fa-heart"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="User">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Comments">
-                <i class="fas fa-comments"></i>
-            </div>
-            <div class="w-6 h-6 text-blue-500 hover:text-blue-700 transition-colors" aria-label="Chart">
-                <i class="fas fa-chart-line"></i>
-            </div>
-        </div>
+        <%- include('./Buffs.ejs') %>
     </div>
 
+    <!-- 📊 Conteneur pour les statistiques -->
     <div class="w-full md:w-1/3">
-        <%- include('./Statistiques.ejs') %>
+        <%- include('./Statistiques.ejs') %> <!-- 📊 Inclure le fichier des statistiques -->
     </div>
 </div>
+
+<!-- 📜 Script pour gérer l'interaction avec l'image de profil -->
+<script>
+    // 📸 Lorsqu'on clique sur l'image de profil
+    document.getElementById('profile-image').addEventListener('click', function() {
+        document.getElementById('file-input').click(); // 🎯 Ouvrir l'input de fichier caché
+    });
+
+    // 📂 Lorsqu'un fichier est sélectionné dans l'input
+    document.getElementById('file-input').addEventListener('change', function(event) {
+        if (event.target.files && event.target.files[0]) { // 📑 Si un fichier est sélectionné
+            var reader = new FileReader(); // 📚 Créer un FileReader pour lire le fichier
+            reader.onload = function(e) {
+                document.getElementById('profile-image').src = e.target.result; // 🔄 Mettre à jour l'image de profil avec le fichier sélectionné
+            }
+            reader.readAsDataURL(event.target.files[0]); // 📤 Lire le fichier sélectionné en tant que URL de données
+        }
+    });
+</script>

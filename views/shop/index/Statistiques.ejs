@@ -1,25 +1,103 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+<div class="flex space-x-4">
+    <!-- Bouton pour afficher le graphique en colonnes -->
+    <button onclick="showChart('ColumnChart')" id="btnColumnChart" class="p-2 rounded-md bg-blue-500 text-white">
+        Vue générale 📊
+    </button>
+    <!-- Bouton pour afficher le graphique en barres -->
+    <button onclick="showChart('BarChart')" id="btnBarChart" class="p-2 rounded-md bg-green-500 text-white">
+        Santé 🌿
+    </button>
+    <!-- Bouton pour afficher le graphique en camembert -->
+    <button onclick="showChart('PieChart')" id="btnPieChart" class="p-2 rounded-md bg-purple-500 text-white">
+        Les étapes créatrices de la vie 🎨
+    </button>
+</div>
 
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+<div id="chart_div" style="display: none;"></div>
+<div id="life_mana_chart_div" style="display: none;"></div>
+<div id="pie_chart_div" style="display: none;"></div>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+    google.charts.load('current', {'packages':['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+        // Dessiner le graphique en colonnes
+        drawChart('ColumnChart', 'chart_div', [
             ['Statistiques', 'Valeur'],
             ['Argent', 1000],
             ['Santé', 400],
             ['Temps', 200]
-        ]);
+        ], {
+            title: 'Flux'
+        });
 
-        var options = {
-            title: 'Flow',
-            legend: { position: 'none' },
-            vAxis: { minValue: 0 },
-            chartArea: {height: '50%'}
-        };
+        // Dessiner le graphique en barres pour la santé
+        drawChart('BarChart', 'life_mana_chart_div', [
+            ['Statistiques', 'Valeur'],
+            ['Vie', 80],
+            ['Calories', 50]
+        ], {
+            title: 'Santé'
+        });
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        // Dessiner le graphique en camembert pour les étapes créatrices de la vie
+        drawChart('PieChart', 'pie_chart_div', [
+            ['Statistiques', 'Valeur', { role: 'annotation' }],
+            ['Néant', 1, '0'],
+            ['Minimalisme', 2, '1-3'],
+            ['Fantasmes', 2, '3-5'],
+            ['Commencer à copier', 5, '5-10'],
+            ['Mûrissement artistique', 5, '10-15'],
+            ['Besoin de changer le monde', 5, '15-20'],
+            ['Prise de conscience politique', 5, '20-25'],
+            ['Maturité', 5, '25-30'],
+            ['Réussir à tout prix', 10, '30-40'],
+            ['Répéter ses succès', 5, '40-45'],
+            ['Envie de rester en phase avec les gens de 25 ans', 5, '45-50'],
+            ['Vous vous réinventez', 10, '50-60'],
+            ['Descente en pente douce vers la sénilité', 15, '60-75'],
+            ['Regain de jeunesse', 10, '75-85'],
+            ['Perte des inhibitions', 15, '85-100']
+        ], {
+            title: 'Les étapes créatrices de la vie'
+        });
+    }
+
+    function drawChart(chartType, elementId, dataArray, options) {
+        var data = google.visualization.arrayToDataTable(dataArray);
+        var chart;
+        if (chartType === 'ColumnChart') {
+            chart = new google.visualization.ColumnChart(document.getElementById(elementId));
+        } else if (chartType === 'BarChart') {
+            chart = new google.visualization.BarChart(document.getElementById(elementId));
+        } else if (chartType === 'PieChart') {
+            chart = new google.visualization.PieChart(document.getElementById(elementId));
+        }
         chart.draw(data, options);
     }
+
+    function showChart(chartType) {
+        var chartDivs = ['chart_div', 'life_mana_chart_div', 'pie_chart_div'];
+        chartDivs.forEach(function(divId) {
+            document.getElementById(divId).style.display = 'none';
+        });
+
+        document.getElementById('btnColumnChart').classList.remove('bg-blue-700');
+        document.getElementById('btnBarChart').classList.remove('bg-green-700');
+        document.getElementById('btnPieChart').classList.remove('bg-purple-700');
+
+        if (chartType === 'ColumnChart') {
+            document.getElementById('btnColumnChart').classList.add('bg-blue-700');
+            document.getElementById('chart_div').style.display = 'block';
+        } else if (chartType === 'BarChart') {
+            document.getElementById('btnBarChart').classList.add('bg-green-700');
+            document.getElementById('life_mana_chart_div').style.display = 'block';
+        } else if (chartType === 'PieChart') {
+            document.getElementById('btnPieChart').classList.add('bg-purple-700');
+            document.getElementById('pie_chart_div').style.display = 'block';
+        }
+    }
 </script>
-<div id="chart_div" style="width: 100%; height: 150px;"></div> <!-- 📊 Chart container -->
