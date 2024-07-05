@@ -8,16 +8,16 @@
 
 <body class="flex items-center justify-center min-h-screen">
     <div class="w-96 bg-white rounded-3xl p-4 shadow-lg">
-        <!-- navbar -->
-        <%- include('./index/navbar.ejs') %>
+            <!-- navbar -->
+            <%- include('./index/navbar.ejs') %>
         <!-- Profile and statistics -->
         <%- include('./index/profile.ejs') %>
         <!-- HOME -->
         <%- include('./index/home.ejs') %>
         <!-- LES PLUS UTILISÉES -->
-        <div class="bg-gray-900 rounded-3xl shadow-lg"><%- include('./index/apps-sites.ejs') %></div>
-        <!-- Footer navigation -->
-        <%- include('./index/footer.ejs') %>
+        <div class="hidden bg-gray-900 rounded-3xl shadow-lg"><!-- include('./index/apps-sites.ejs') --></div>
+            <!-- Footer navigation -->
+            <%- include('./index/footer.ejs') %>
     </div>
 
 <%- include('../includes/end.ejs') %>
