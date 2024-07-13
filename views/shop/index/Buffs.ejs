@@ -1,48 +1,95 @@
 <!-- 🔢 Section des statistiques avec icônes et valeurs -->
-<div class="flex flex-wrap gap-1">
+<div class="flex flex-wrap gap-2 mb-4">
+    <!-- Statistique Individuelle -->
+    <style>
+        .stat-item {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .stat-item div {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 0.625rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item:hover img {
+            transform: scale(1.2);
+        }
+    </style>
+    
     <!-- 🔍 Taille -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Taille" title="Taille">
-        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_colossussmash.jpg" alt="Taille" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">172 cm</div>
+    <div class="stat-item" aria-label="Taille" title="Taille">
+        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_colossussmash.jpg" alt="Taille">
+        <div>172 cm</div>
     </div>
     <!-- ⚖️ Poids -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Poids" title="Poids">
-        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_strengthofarms.jpg" alt="Poids" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">58.60 kg</div>
+    <div class="stat-item" aria-label="Poids" title="Poids">
+        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_strengthofarms.jpg" alt="Poids">
+        <div>58.60 kg</div>
     </div>
     <!-- ⏳ Âge -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Âge" title="Âge">
-        <img src="https://render.worldofwarcraft.com/icons/56/ability_mage_timewarp.jpg" alt="Âge" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">18 ans</div>
+    <div class="stat-item" aria-label="Âge" title="Âge">
+        <img src="https://render.worldofwarcraft.com/icons/56/ability_mage_timewarp.jpg" alt="Âge">
+        <div>18 ans</div>
     </div>
     <!-- 🔥 Métabolisme de base -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Métabolisme de base" title="Métabolisme de base">
-        <img src="https://render.worldofwarcraft.com/icons/56/spell_nature_regeneration.jpg" alt="Métabolisme de base" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">1400 kcal/jour</div>
+    <div class="stat-item" aria-label="Métabolisme de base" title="Métabolisme de base">
+        <img src="https://render.worldofwarcraft.com/icons/56/spell_nature_regeneration.jpg" alt="Métabolisme de base">
+        <div>1400 kcal/jour</div>
     </div>
     <!-- 🏃‍♂️ Niveau d'activité physique -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Niveau d'activité physique" title="Niveau d'activité physique">
-        <img src="https://render.worldofwarcraft.com/icons/56/ability_rogue_sprint.jpg" alt="Niveau d'activité physique" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">Modéré</div>
+    <div class="stat-item" aria-label="Niveau d'activité physique" title="Niveau d'activité physique">
+        <img src="https://render.worldofwarcraft.com/icons/56/ability_rogue_sprint.jpg" alt="Niveau d'activité physique">
+        <div>Modéré</div>
     </div>
     <!-- 🍽️ Dépense énergétique journalière -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Dépense énergétique journalière" title="Dépense énergétique journalière">
-        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_battleshout.jpg" alt="Dépense énergétique journalière" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">2000 kcal/jour</div>
+    <div class="stat-item" aria-label="Dépense énergétique journalière" title="Dépense énergétique journalière">
+        <img src="https://render.worldofwarcraft.com/icons/56/ability_warrior_battleshout.jpg" alt="Dépense énergétique journalière">
+        <div>2000 kcal/jour</div>
     </div>
     <!-- 💰 Revenus -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Revenus" title="Revenus">
-        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_coin_01.jpg" alt="Revenus" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">1000 €/mois</div>
+    <div class="stat-item" aria-label="Revenus" title="Revenus">
+        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_coin_01.jpg" alt="Revenus">
+        <div>1000 €/mois</div>
     </div>
     <!-- 💸 Dépenses -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Dépenses" title="Dépenses">
-        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_coin_05.jpg" alt="Dépenses" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">800 €/mois</div>
+    <div class="stat-item" aria-label="Dépenses" title="Dépenses">
+        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_coin_05.jpg" alt="Dépenses">
+        <div>800 €/mois</div>
     </div>
     <!-- 🏦 Taux d'épargne -->
-    <div class="w-8 h-8 flex items-center justify-center relative" aria-label="Taux d'épargne" title="Taux d'épargne">
-        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_gem_bloodstone_02.jpg" alt="Taux d'épargne" class="w-full h-full rounded">
-        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xs" style="text-shadow: 1px 1px 2px black;">20 %</div>
+    <div class="stat-item" aria-label="Taux d'épargne" title="Taux d'épargne">
+        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_gem_bloodstone_02.jpg" alt="Taux d'épargne">
+        <div>20 %</div>
+    </div>
+    <!-- 👜 Sac -->
+    <div class="stat-item" aria-label="Sac" title="Sac">
+        <img src="https://render.worldofwarcraft.com/icons/56/inv_misc_bag_01.jpg" alt="Sac">
+        <div>50 L</div>
     </div>
 </div>

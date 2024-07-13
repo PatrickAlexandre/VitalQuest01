@@ -1,39 +1,111 @@
-<div class="text-center mb-4 bg-gray-100 p-4 rounded-lg">
-    <div class="flex items-center justify-center mb-2">
-        <h2 class="text-xl font-bold">Services</h2> <!-- 🏡 Expérience & Produits-->
-        <div class="flex items-center ml-2 bg-gray-200 px-2 py-1 rounded-lg text-sm">
-            <i class="fas fa-paperclip text-gray-600 mr-2"></i> <!-- 📎 Paperclip icon -->
-            <input type="text" class="bg-gray-200 focus:outline-none" placeholder="Message" /> <!-- ✉️ Input text field -->
-            <i class="fas fa-arrow-up text-gray-600 ml-2"></i> <!-- ⬆️ Arrow up icon -->
+<div class="text-center mb-4 bg-gray-100 p-6 rounded-lg shadow-lg">
+
+    <div class="flex flex-wrap justify-center space-x-2 mb-4" id="question-buttons">
+        <button class="bg-white text-gray-800 py-2 px-4 mb-2 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 w-full sm:w-auto"></button>
+        <button class="bg-white text-gray-800 py-2 px-4 mb-2 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 w-full sm:w-auto"></button>
+        <button class="bg-white text-gray-800 py-2 px-4 mb-2 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 w-full sm:w-auto"></button>
+        <button class="bg-white text-gray-800 py-2 px-4 mb-2 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 w-full sm:w-auto"></button>
+    </div>
+
+    <script>
+        const questions = [
+            "Si tu pouvais inviter n’importe qui dans le monde, qui inviterais-tu à dîner ?",
+            "Aimerais-tu être célèbre ? De quelle manière ?",
+            "Avant de passer un coup de fil, répètes-tu ce que tu vas dire ? Pourquoi ?",
+            "À quoi ressemblerait une journée parfaite pour toi ?",
+            "Quand as-tu chanté pour toi la dernière fois ? Et pour quelqu’un d’autre ?",
+            "Si tu pouvais vivre jusqu’à 90 ans et garder soit l’esprit, soit le corps d’un trentenaire pour les 60 dernières années de ta vie, lequel choisirais-tu ?",
+            "As-tu un pressentiment secret sur la manière dont tu vas mourir ?",
+            "Nomme trois choses que toi et ton partenaire semblez avoir en commun.",
+            "Pour quelle chose dans ta vie te sens-tu le plus reconnaissant ?",
+            "Si tu pouvais changer quelque chose dans ta manière d’être, qu’est-ce que ce serait ?",
+            "Prends quatre minutes et raconte à ton partenaire l’histoire de ta vie en autant de détails que possible.",
+            "Si tu pouvais te réveiller demain en ayant acquis une qualité ou une compétence, laquelle serait-ce ?",
+            "Si une boule de cristal pouvait te révéler la vérité sur toi, ta vie, le futur ou n’importe quoi d’autre, que voudrais-tu savoir ?",
+            "Y a-t-il quelque chose que tu rêves de faire depuis longtemps ? Pourquoi ne l’as-tu pas encore fait ?",
+            "Quelle est la plus grande réalisation de ta vie ?",
+            "Qu’est-ce que tu valorises le plus dans une amitié ?",
+            "Quel est ton plus beau souvenir ?",
+            "Quel est ton pire souvenir ?",
+            "Si tu savais que dans un an tu allais mourir soudainement, changerais-tu quelque chose à ta manière de vivre maintenant ? Pourquoi ?",
+            "Que signifie l’amitié pour toi ?",
+            "Quels rôles l’amour et l’affection jouent-ils dans ta vie ?",
+            "Alterne cinq caractéristiques positives de votre partenaire.",
+            "Ta famille est-elle proche et aimante ? Penses-tu que ton enfance a été plus heureuse que celle des autres ?",
+            "Que penses-tu de ta relation avec ta mère ?",
+            "Fais trois véritables « nous » avec ton partenaire. Par exemple, « Nous sommes tous les deux dans cette pièce en train de ressentir... »",
+            "Complète cette phrase : « J’aimerais avoir quelqu’un avec qui je pourrais partager... »",
+            "Si tu devais devenir ami proche avec ton partenaire, partage quelque chose qui serait important qu’il ou elle sache.",
+            "Dis à ton partenaire ce que tu aimes chez lui ou elle ; sois très honnête cette fois, en disant des choses que tu ne dirais pas à quelqu’un que tu viens de rencontrer.",
+            "Raconte à ton partenaire un moment embarrassant de ta vie.",
+            "Quelle a été la dernière fois que tu as pleuré devant une autre personne ? Et seul ?",
+            "Dis à ton partenaire quelque chose que tu apprécies déjà chez lui ou elle.",
+            "Qu’est-ce qui, si cela arrivait, serait un sujet trop sérieux pour en faire une blague ?",
+            "Si tu devais mourir ce soir sans possibilité de communiquer avec qui que ce soit, que regretterais-tu le plus de ne pas avoir dit à quelqu’un ? Pourquoi ne le lui as-tu pas encore dit ?",
+            "Ta maison, contenant tout ce que tu possèdes, prend feu. Après avoir sauvé tes proches et tes animaux de compagnie, tu as le temps d’aller sauver une seule chose. Laquelle ? Pourquoi ?",
+            "De toutes les personnes de ta famille, la mort de qui te toucherait le plus ? Pourquoi ?",
+            "Partage un problème personnel et demande à ton partenaire comment il ou elle le gérerait. Demande aussi à ton partenaire de te dire comment il ou elle perçoit le problème que tu as choisi."
+        ];
+
+        function getRandomQuestions(num) {
+            const shuffled = questions.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, num);
+        }
+
+        const buttons = document.querySelectorAll("#question-buttons button");
+        const randomQuestions = getRandomQuestions(buttons.length);
+
+        buttons.forEach((button, index) => {
+            button.textContent = randomQuestions[index];
+        });
+    </script>
+
+    <div class="flex items-center justify-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Services</h2>
+        <div class="flex items-center ml-4 bg-gray-200 px-4 py-2 rounded-lg text-sm cursor-pointer">
+
+            <!-- Icône Paperclip -->
+            <label for="file-upload" class="cursor-pointer">
+                <i id="file-icon" class="fas fa-paperclip text-gray-600 mr-2"></i>
+            </label>
+            <!-- Input File caché -->
+            <input id="file-upload" type="file" class="hidden">
+            <script>
+                // Ajouter un événement de clic à l'icône de trombone
+                document.getElementById('file-icon').addEventListener('click', function() {
+                    document.getElementById('file-upload').click(); // Cliquer sur le champ de fichier caché
+                });
+            </script>
+
+            <input type="text" class="bg-gray-200 focus:outline-none" placeholder="Message" />
+            
+            <i class="fas fa-arrow-up text-gray-600 ml-2 p-1 hover:bg-black hover:text-white hover:rounded-full"></i>
+
         </div>
     </div>
-    <h2 class="text-2xl font-bold">Private School of Excellence</h2> <!-- 🏫 Main title -->
 
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Private School of Excellence</h2>
 
-<!-- eCommerce items -->
-<div class="space-y-4 mb-4"> <!-- 🔄 Repeated items container -->
-    <div class="flex items-center justify-between bg-green-100 p-2 rounded-lg">
-        <i class="fas fa-laptop text-teal-700"></i> <!-- 💻 Electronics icon -->
-        <span class="flex-grow text-center text-teal-700 font-bold">Électronique</span>
+    <div class="space-y-6 mb-6">
+        <div class="flex items-center justify-between bg-green-200 p-4 rounded-lg hover:bg-green-300 transition duration-300 cursor-pointer">
+            <i class="fas fa-laptop text-teal-700"></i>
+            <span class="flex-grow text-center text-teal-700 font-bold">Électronique</span>
+        </div>
+        <div class="flex items-center justify-between bg-purple-200 p-4 rounded-lg hover:bg-purple-300 transition duration-300 cursor-pointer">
+            <i class="fas fa-tshirt text-purple-700"></i>
+            <span class="flex-grow text-center text-purple-700 font-bold">Mode</span>
+        </div>
+        <div class="flex items-center justify-between bg-orange-200 p-4 rounded-lg hover:bg-orange-300 transition duration-300 cursor-pointer">
+            <i class="fas fa-couch text-orange-700"></i>
+            <span class="flex-grow text-center text-orange-700 font-bold">Décoration d'intérieur</span>
+        </div>
+        <div class="flex items-center justify-between bg-red-200 p-4 rounded-lg hover:bg-red-300 transition duration-300 cursor-pointer">
+            <i class="fas fa-heartbeat text-red-700"></i>
+            <span class="flex-grow text-center text-red-700 font-bold">Santé et Bien-être</span>
+        </div>
+        <div class="flex items-center justify-between bg-yellow-200 p-4 rounded-lg hover:bg-yellow-300 transition duration-300 cursor-pointer">
+            <i class="fas fa-utensils text-yellow-700"></i>
+            <span class="flex-grow text-center text-yellow-700 font-bold">Cuisine Gastronomique</span>
+        </div>
     </div>
-    <div class="flex items-center justify-between bg-green-100 p-2 rounded-lg">
-        <i class="fas fa-tshirt text-purple-700"></i> <!-- 👕 Fashion icon -->
-        <span class="flex-grow text-center text-purple-700 font-bold">Mode</span>
-    </div>
-    <div class="flex items-center justify-between bg-green-100 p-2 rounded-lg">
-        <i class="fas fa-couch text-orange-700"></i> <!-- 🛋️ Home Decor icon -->
-        <span class="flex-grow text-center text-orange-700 font-bold">Décoration d'intérieur</span>
-    </div>
-    <div class="flex items-center justify-between bg-green-100 p-2 rounded-lg">
-        <i class="fas fa-heartbeat text-red-700"></i> <!-- 💓 Health & Wellness icon -->
-        <span class="flex-grow text-center text-red-700 font-bold">Santé et Bien-être</span>
-    </div>
-    <div class="flex items-center justify-between bg-green-100 p-2 rounded-lg">
-        <i class="fas fa-utensils text-yellow-700"></i> <!-- 🍽️ Gourmet Dining icon -->
-        <span class="flex-grow text-center text-yellow-700 font-bold">Cuisine Gastronomique</span>
-    </div>
-</div>
-
-
-
 </div>
